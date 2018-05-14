@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Deputy Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        
+        .header {
+            background-color: #1b92da;
+            height: 5rem;
+        }
+        
+        p {
+            text-align: center;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #1b92da;
+        }
+        
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0))
+        }
+        
+        button {
+            height: 2rem;
+            min-width: 35%;
+            border: none;
+            border-radius: 0.2rem;
+            margin: 1rem auto;
+        }
+        
+        #deputyLogo {
+            height: 3rem;
+            margin-left: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .loginContainer {
+            max-width: 40%;
+            margin: 2rem auto 1rem auto;
+            border: 1px solid darkgray;
+            border-radius: 1rem;
+        }
+        
+        .email,
+        .password {
+            width: 80%;
+            margin: 1rem auto;
+        }
+        
+        .loginContainer>.email>a,
+        .loginContainer>.password>a {
+            float: right;
+        }
+        
+        input[type="email"],
+        input[type="text"] {
+            width: 100%;
+            height: 2rem;
+            border: 1px solid darkgray;
+            border-radius: 0.2rem;
+            display: block;
+            margin: 0.2rem auto;
+        }
+        
+        input[type="email"]:focus,
+        input[type="text"]:focus {
+            border: 1.25px solid #1b92da;
+        }
+        
+        .submitBtn>button {
+            height: 3rem;
+            width: 80%;
+            background-color: #1b92da;
+            color: #f7f7f7;
+            font-size: 1.8rem;
+        }
+        
+        .submitBtn {
+            margin-bottom: -1rem;
+        }
+        
+        .submitBtn,
+        .oAuthRedirects {
+            text-align: center;
+        }
+        
+        #fbBtn {
+            background-color: #3B5998;
+            color: #f7f7f7;
+            margin: 1rem;
+            font-weight: 900;
+        }
+        
+        #googleBtn {
+            background-color: #4885ed;
+            color: #f7f7f7;
+            margin: 1rem;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <!-- base64 image via google image search -->
+        <img id="deputyLogo" src="data:image/png;base64,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">
+    </div>
+    <form id="login" method="POST" action="/some/url">
+        <div class="loginContainer">
+            <div class="email">
+                <a class="notVerifiedRedirect" href="#">Not Verified?</a>
+                <label for="emailAddress">Email Address</label>
+                <input type="email" id="emailAddress">
+            </div>
+            <div class="password">
+                <a class="forgotPasswordRedirect" href="#">Forgot Password</a>
+                <label for="password">Password</label>
+                <input type="text" id="password">
+            </div>
+            <div class="submitBtn">
+                <button type="submit">Login</button>
+            </div>
+            <p>Or login with:</p>
+            <hr>
+            <div class="oAuthRedirects">
+                <a href="https://url-for/fbOAuth.html">
+                    <button type="button" id="fbBtn">Facebook</button>
+                </a>
+                <a href="https://url-for/googleOAuth.html">
+                    <button type="button" id="googleBtn">Google</button>
+                </a>
+            </div>
+        </div>
+        <p>
+            Don't have a Deputy account? <br>
+            <a href="url-of/account-creation.html">Sign Up Now</a> Or Join with
+            <a href="url-of/third-party-auth">third party service</a>
+        </p>
+    </form>
+</body>
+
+</html>
