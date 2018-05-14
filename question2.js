@@ -7,15 +7,15 @@ function renderTableRow(imgUrl, name, role, location) {
     let html = `<tr>
                 <td>
                   <div>
-                    <img alt="{{ name }}" src="{{ imgUrl }}">
+                    <img alt="${name}" src="${imgUrl}">
                   </div>
                   <div>
-                    <div class="m-team-name">{{ name }}</div>
-                    <p class="gray text--small margin-none">{{ role }}</p>
+                    <div class="m-team-name">${name}</div>
+                    <p class="gray text--small margin-none">${role}</p>
                   </div>
                 </td>
                 <td class="text--small tdCompany" style="display: table-cell;">
-                  {{ location }}
+                  ${location}
                 </td>
                 <td width="155">
                   <div class="btn-group u-pullRight">
